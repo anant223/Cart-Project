@@ -1,6 +1,6 @@
 import React from "react";
 
-class CartItem extends React.Component{
+const CartItem = (props) =>{
     // constructor(){
         // super();
         // this.state = {
@@ -95,17 +95,23 @@ class CartItem extends React.Component{
         
       
     // }
-    render() {
+    // render() {
         // console.log("this.props", this.props)
-        const {price, title, qty} = this.props.product; /*distucturing method*/
-        const {product, onIncreaseQty, onDecreaseQty, onDeleteProduct} = this.props
+        // const {price, title, qty} = this.props.product; /*distucturing method*/
+        // const {product, onIncreaseQty, onDecreaseQty, onDeleteProduct} = this.props
+        const {price, title, qty} = props.product;
+        const {
+            product, 
+            onIncreaseQty, 
+            onDecreaseQty, 
+            onDeleteProduct
+        } = props;
         
         return (
             <div className="cart-item">
                 {/* {this.props.jsx} */}
                 <div className="left-block">
-                    <img style={styles.image}/>
-                    
+                    <img style={styles.image} src={product.img}/>
                 </div>
                 <div className="right-block">
                     <div style={{fontSize: 25}}>{title}</div>
@@ -123,7 +129,7 @@ class CartItem extends React.Component{
 
             </div>
         )
-    }
+    // }
 }
 
 const styles = {
